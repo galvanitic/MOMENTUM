@@ -1,0 +1,109 @@
+$blue1: #3A585D;
+$blue2: #A7D2D3;
+$blue3: #EBF3F1;
+$blue4: #F1F9F8;
+$white1: #D7DDDE;
+$white2: #E4E3E1;
+$white3: #F7F7F6;
+$teal: #64AD98;
+$salmon: #D98D7A;
+$salmonlight: #e0927f;
+$black: #292D2E;
+
+@font-face {
+  font-family: Proxima;
+  src: url('fonts/milliard-cufonfonts/Proxima\ Nova\ Regular.otf');
+}
+@font-face {
+  font-family: Proxima Nova Bold;
+  src: url('fonts/milliard-cufonfonts/Proxima\ Nova\ Bold.otf');
+}
+
+.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  // form,
+  // label {
+  //   display: flex;
+  //   flex-flow: column;
+  //   font-family: "Proxima";
+  // }
+  // label > span {
+  //   font-weight: 600;
+  // }
+  // input {
+  //   padding: 8px;
+  //   margin: 0.3rem 0 1rem;
+  //   border: 1px solid #ccc;
+  //   border-radius: 4px;
+  // }
+
+  .login-description{
+    font-family: "Proxima";
+    font-size: 11px;
+    transform: translateY(20px);
+    text-align: center;
+    color: gray;
+  }
+  #email-div {
+    margin: 50px 0;
+    display:block;
+  }
+  #password-div {
+    margin: 50px 0;
+    display:block;
+  }
+  #company-domain {
+    font-family: "Proxima";
+    font-size: 15px;
+    position: relative;
+    margin-top: -36.4px;
+    text-align: right;
+    z-index: 10;
+    padding-right: 15px;
+    color: $blue1;
+    // background-color: white;
+  }
+  #outlined-basic{
+    font-family: 'Proxima';
+    width: 23vw;
+    font-size: 15px;
+  }
+  #sign-in{
+    width: 23vw;
+    // margin: 40px 0 20px 0;
+  }
+  .submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .submit > a {
+    text-decoration: none;
+  }
+  .submit > button {
+    max-width: 300px;
+    padding: 0.5rem 1rem;
+    // cursor: pointer;
+    background: $salmon;
+    color: $white2;
+    font-family: "Proxima Nova Bold";
+    // border: 1px solid #ccc;
+    // border-radius: 4px;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1) all;
+  }
+  .submit > button:hover {
+    color: $white1;
+    background-color: $salmonlight;
+    transform: translateY(-2px);
+  }
+  .error {
+    font-family: "Proxima";
+    font-size: 11px;
+    color: $salmonlight;
+    margin: 1rem 0 0;
+  }
+}

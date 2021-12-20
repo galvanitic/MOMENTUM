@@ -1,0 +1,267 @@
+$blue1: #3A585D;
+$blue2: #A7D2D3;
+$blue3: #EBF3F1;
+$blue4: #F1F9F8;
+$white1: #D7DDDE;
+$white2: #E4E3E1;
+$white3: #F7F7F6;
+$white4: #f5f6fa;
+$teal: #64AD98;
+$salmon: #D98D7A;
+$salmonlight: #e0927f;
+$black: #292D2E;
+$gray: #7e869f;
+$gray2: #979ba7;
+
+@font-face {
+  font-family: Proxima;
+  src: url('fonts/milliard-cufonfonts/Proxima\ Nova\ Regular.otf');
+}
+@font-face {
+  font-family: Proxima Nova Bold;
+  src: url('fonts/milliard-cufonfonts/Proxima\ Nova\ Bold.otf');
+}
+@font-face {
+  font-family: Utopia STD;
+  src: url('fonts/utopia-std/UtopiaStd-Bold.otf');
+}
+#timekeeper-page{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+#notifications-page{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+#apps-page{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+// Toolbar component
+#toolbar{
+  display: grid;
+  grid-template-columns: 1fr 6fr 2fr;
+  grid-template-rows: 80px;
+  font-family: "Proxima";
+  .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tabs{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10%;
+    #active{
+      color: $teal;
+    }
+    .tab_item{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      color: $gray;
+      p {
+        transform: translateY(2px);
+      }
+    }
+    .tab_item:hover{
+      cursor: pointer;
+      color: $gray2;
+      transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    }
+  }
+}
+
+// User Preview component
+.user_preview:hover{
+  cursor: pointer;
+}
+.user_image{
+  border-radius: 100px;
+  overflow: hidden;
+  width: 35px;
+  height: 35px;
+  z-index: 10;
+  div{
+    border-radius: 100px;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.user_preview{
+  display: flex;
+  flex-direction: row;
+  justify-content: normal;
+  align-items: center;
+  #user_info{
+    padding: 0 0 0 10px;
+    p{
+      margin: 0;
+    }
+    .user_email{
+      font-size: 10px;
+      color: $gray;
+    }
+  }
+}
+// User Options component
+.user_options{
+  margin-left: -10px;
+  padding: 10px;
+  z-index: 12;
+  position: absolute;
+  top: 10px;
+  width: 17.5%;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: $white3;
+  box-shadow: 0px 1px 3px 0px #7d879f;
+  border-radius: 10px;
+  margin-right: -3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  .logout{
+    padding: 10px 0px 10px 10px;
+    color: $gray;
+  }
+  .logout:hover{
+    color: $salmon;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+  }
+}
+
+// Dash component
+.dash {
+  max-width: 100%;
+  height: 92vh;
+  background-color: $white4;
+  display: flex;
+  flex-direction: row;
+  .widget_cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  .widget{
+    width: 95%;
+    height: 90%;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: #ebebeb 0px 0px 10px 0px;        
+  }
+  .main_dash_container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+              "a a"
+              "b c";
+    #container_1{
+      grid-area: a;
+      .dash_content{
+        height: 80%;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 25% 50% 25%;
+        // gap: 35px;
+        grid-template-areas: 
+          "p wh sp"
+          "p wh sa";
+        .student_progress_cont{
+          grid-area: p;
+          .student_progress{
+            background-color:$blue1;
+          }
+        }
+        .weekly_hours_cont{
+          grid-area: wh;
+        }
+        .school_portal_cont{
+          grid-area: sp;
+        }
+        .schedule_appt_cont{
+          grid-area: sa;
+        }
+      }
+    }
+    #container_2{
+      grid-area: b;
+      .cb_content{
+        margin-top: 15px;
+        border-collapse: collapse;
+        tr{
+          margin: 10px 0px;
+          padding: 0 10px;
+        }
+        width: 100%;
+        .cb_header{
+          font-family: Proxima;
+          color: $blue1;
+          font-size: 10px;
+          height: 10px;
+          text-align: left;
+        }
+        .cb_element{
+          font-size: 10px;
+          font-family: Proxima;
+          color: $gray;
+          td:nth-of-type(1){
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+          }
+          td:nth-of-type(5){
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+          }
+        }
+        .cb_active{
+          background-color: white;
+          // border-radius: 15px;
+        }
+      }
+    }
+    #container_3{
+      grid-area: c;
+      
+    }
+    .dash_container{
+      padding: 0 4vw;
+      h2 {
+        font-family: Utopia STD;
+        color: $blue1;
+        margin: 3vh 0 0 0;
+      }
+    }
+  }
+}
+.timekeeper{
+  max-width: 100vw;
+  height: 100%;
+  background-color: $white4;
+}
+.apps{
+  max-width: 100vw;
+  height: 100%;
+  background-color: $white4;
+}
+.notifications{
+  max-width: 100vw;
+  height: 100%;
+  background-color: $white4;
+}

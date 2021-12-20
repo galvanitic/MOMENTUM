@@ -1,0 +1,107 @@
+@font-face {
+  font-family: Proxima;
+  src: url("fonts/milliard-cufonfonts/Proxima Nova Regular.otf");
+}
+
+@font-face {
+  font-family: Proxima Nova Bold;
+  src: url("fonts/milliard-cufonfonts/Proxima Nova Bold.otf");
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.login .login-description {
+  font-family: "Proxima";
+  font-size: 11px;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+  text-align: center;
+  color: gray;
+}
+
+.login #email-div {
+  margin: 50px 0;
+  display: block;
+}
+
+.login #password-div {
+  margin: 50px 0;
+  display: block;
+}
+
+.login #company-domain {
+  font-family: "Proxima";
+  font-size: 15px;
+  position: relative;
+  margin-top: -36.4px;
+  text-align: right;
+  z-index: 10;
+  padding-right: 15px;
+  color: #3A585D;
+}
+
+.login #outlined-basic {
+  font-family: 'Proxima';
+  width: 23vw;
+  font-size: 15px;
+}
+
+.login #sign-in {
+  width: 23vw;
+}
+
+.login .submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login .submit > a {
+  text-decoration: none;
+}
+
+.login .submit > button {
+  max-width: 300px;
+  padding: 0.5rem 1rem;
+  background: #D98D7A;
+  color: #E4E3E1;
+  font-family: "Proxima Nova Bold";
+  -webkit-transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1) all;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1) all;
+}
+
+.login .submit > button:hover {
+  color: #D7DDDE;
+  background-color: #e0927f;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+.login .error {
+  font-family: "Proxima";
+  font-size: 11px;
+  color: #e0927f;
+  margin: 1rem 0 0;
+}
+/*# sourceMappingURL=auth.css.map */
