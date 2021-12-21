@@ -71,7 +71,7 @@ export default function CommunityBoard (props: IWhatAThingProps) {
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
-                  style={{ minWidth: column.minWidth, fontFamily: 'Proxima'}}
+                  style={{ minWidth: column.minWidth, fontFamily: 'Proxima Nova Bold'}}
                 >
                   {column.label}
                 </TableCell>
