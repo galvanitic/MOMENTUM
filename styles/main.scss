@@ -25,6 +25,9 @@ $gray2: #979ba7;
   font-family: Utopia STD;
   src: url('fonts/utopia-std/UtopiaStd-Bold.otf');
 }
+html {
+  font-family: Proxima;
+}
 #timekeeper-page{
   display: flex;
   flex-direction: column;

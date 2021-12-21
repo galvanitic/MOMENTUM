@@ -1,81 +1,135 @@
 import * as React from 'react';
 import Image from 'next/dist/client/image';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { DataGrid, GridRowsProp, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import Avatar from '@mui/material/Avatar';
 import { display } from '@mui/system';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import TablePagination from '@mui/material/TablePagination';
+import { ReactComponentElement } from 'react-transition-group/node_modules/@types/react';
 export interface IWhatAThingProps {
   
 }
-
-const columns: GridColDef[] = [
-  { field: 'date', headerName: 'Date', width: 100 },
-  { field: 'avatar', headerName: 'User', width: 150, renderCell: (params: GridRenderCellParams<Array<string>>)=> <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-around', alignItems: 'center'}}><Avatar alt={params.value[0]} src={params.value[1]} /> {params.value[0]} </div>},
-  { field: 'message', headerName: 'Message', width: 250 },
-  { field: 'options', headerName: '', width: 25, renderCell: (params: GridRenderCellParams<any>)=> <MoreHorizIcon />},
+interface Column {
+  id: 'date' | 'user' | 'message' | 'options';
+  label: string;
+  minWidth?: number;
+}
+interface Data {
+  date: string;
+  user: Array<string>;
+  message: string;
+  options?: Array<string>;
+}
+const columns: readonly Column[] = [
+  { id: 'date', label: 'Date', minWidth: 120 },
+  { id: 'user', label: 'User', minWidth: 150 },
+  { id: 'message', label: 'Message', minWidth: 250 },
+  { id: 'options', label: '', minWidth: 10 },
 ];
-const rows: GridRowsProp = [
-  { id: 1, 
-    date: '12.19.2021', 
-    avatar: ["Bradley", "/profile"],
-    message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, labore cupiditate debitis esse qui explicabo officia culpa sed, dolorum possimus, temporibus doloremque sunt officiis. Et velit voluptatibus labore eligendi quis?", 
-    options: ""
-  },
-  { id: 2, 
-    date: '12.19.2021', 
-    avatar: ["Rodolfo", "/profile"],
-    message: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dicta repudiandae velit, suscipit eos minima iure omnis quas, ipsam officia tempore earum recusandae. Deleniti quos delectus ipsum eaque at nulla?", 
-    options: ""
-  },
-  { id: 3, 
-    date: '12.19.2021', 
-    avatar: ["Hudson", "/profile"],
-    message: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure aspernatur officia sequi totam nostrum, cum aliquid beatae praesentium fugiat deserunt amet aperiam quam quod ex fugit magnam et debitis neque.", 
-    options: ""
-  },
-  { id: 4, 
-    date: '12.19.2021', 
-    avatar: ["Sarah", "/profile"],
-    message: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi totam libero, asperiores doloribus pariatur a similique, officia distinctio natus eveniet illo vero sed eligendi hic? Sapiente ratione facere molestias beatae!", 
-    options: ""
-  },
-  { id: 5, 
-    date: '12.19.2021', 
-    avatar: ["Leigh", "/profile"],
-    message: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet doloremque inventore explicabo itaque, nam eligendi voluptatibus accusantium labore culpa similique quae. Necessitatibus veniam quaerat animi aspernatur, ipsam totam corrupti. Distinctio!", 
-    options: ""
-  },
-  { id: 6, 
-    date: '12.19.2021', 
-    avatar: ["Bad Bunny", "/profile"],
-    message: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nam alias aperiam error molestias modi numquam reiciendis eum commodi itaque, hic suscipit id libero totam nulla minima laudantium in! Odit?", 
-    options: ""
-  },
-  { id: 7, 
-    date: '12.19.2021', 
-    avatar: ["Beyoncé Knowles", "/profile"],
-    message: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi possimus sapiente vero libero sint nisi dicta totam quod ea adipisci. Quod optio suscipit voluptatum, amet nostrum corrupti? Eum, vitae tempore.", 
-    options: ""
-  },
+function createData(
+  date: string,
+  user: Array<string>,
+  message: string,
+  options?: Array<string>,
+): Data {
+  return { date, user, message, options };
+}
+
+const rows = [
+  createData('12.19.2021', ["Rodolfo", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
+  createData('11.1.2021', ["Bradley", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
+  createData('8.9.2021', ["Hudson", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
+  createData('8.19.2021', ["Sarah", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
+  createData('2.15.2021', ["Leigh", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
+  createData('1.18.2021', ["Chris", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
+  createData('6.15.2021', ["Suarez", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
 ];
 
 export default function CommunityBoard (props: IWhatAThingProps) {
-  const [pageSize, setPageSize] = React.useState<number>(4);
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
 
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
   return (
-    <div className="cb_content">
-      <div style={{ display: 'flex', height: '100%' }}>
-        <div style={{ flexGrow: 1 }}>
-          <DataGrid 
-          rows={rows} 
-          columns={columns} 
-          pageSize={pageSize}
-          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-          rowsPerPageOptions={[4, 8, 16]}
-          pagination
-          />
-        </div>
-      </div>
+    <div style={{ width: '100%', overflow: 'hidden', marginTop: "15px", borderRadius: '15px'}}>
+      <TableContainer sx={{ height: 260 }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  style={{ minWidth: column.minWidth, fontFamily: 'Proxima'}}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.date}>
+                    {columns.map((column) => {
+                      const value: string | string[] | Array<string> | undefined= row[column.id];
+                      switch(column.id){
+                        case 'user':
+                          return (
+                            <TableCell key={column.id}>
+                              {<div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'start', alignItems: 'center', fontFamily: 'Proxima'}}><Avatar sx={{marginRight: "10px"}} alt={value ? value[0] : ""} src={value ? value[1] : ""} /> {value ? value[0] : ""} </div>}
+                            </TableCell>
+                          );
+                        case 'message':
+                          return (
+                            <TableCell key={column.id} sx={{fontFamily: 'Proxima'}}>
+                              {value?.slice(0,25)+"..."}
+                            </TableCell>
+                            );
+                        case 'options':
+                          return(
+                            <TableCell >
+                              <MoreHorizIcon />
+                            </TableCell>
+                          )
+                        default:
+                          return (
+                            <TableCell key={column.id} sx={{fontFamily: 'Proxima'}}>
+                              {value}
+                            </TableCell>
+                          );
+                      }
+                      
+                    })}
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[5, 10, 20]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+        sx={{fontFamily: 'Proxima'}}
+      />
     </div>
   );
 }

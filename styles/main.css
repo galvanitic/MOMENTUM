@@ -13,6 +13,10 @@
   src: url("fonts/utopia-std/UtopiaStd-Bold.otf");
 }
 
+html {
+  font-family: Proxima;
+}
+
 #timekeeper-page {
   display: -webkit-box;
   display: -ms-flexbox;
