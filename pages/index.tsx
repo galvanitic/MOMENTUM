@@ -27,10 +27,12 @@ export default function Home() {
           </div>
         </div>
         <div id="container_2" className="dash_container">
-          <h2>Community Board</h2>
-          <CommunityBoard />
+          <h2>Project Tracker</h2>
+          
         </div>
         <div id="container_3" className="dash_container">
+          <h2>Community Board</h2>
+          <CommunityBoard />
         </div>
       </div>
     </div>
