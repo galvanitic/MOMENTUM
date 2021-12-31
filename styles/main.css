@@ -383,13 +383,16 @@ h2 {
 
 .dash .main_dash_container #container_1 .dash_content .schedule_appt_cont .schedule_appt h2 {
   margin: 0 0;
+  color: #64AD98;
+  text-align: center;
+  font-size: 15px;
 }
 
 .dash .main_dash_container #container_1 .dash_content .schedule_appt_cont .schedule_appt .schedule_text {
   height: 100%;
   width: 100%;
   position: relative;
-  background-color: #64AD98;
+  background-color: #f5f6fa;
   z-index: 6;
   padding: 0 15px;
   text-align: center;
@@ -413,10 +416,10 @@ h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -425,11 +428,26 @@ h2 {
           align-items: center;
   top: -100%;
   z-index: 5;
+  background-color: #3A585D;
+  cursor: pointer;
+}
+
+.dash .main_dash_container #container_1 .dash_content .schedule_appt_cont .schedule_appt .coach_profile .coach_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .dash .main_dash_container #container_1 .dash_content .schedule_appt_cont .schedule_appt .coach_profile h3 {
   font-family: Utopia STD;
-  color: #3A585D;
+  color: #D7DDDE;
 }
 
 .dash .main_dash_container #container_2 {

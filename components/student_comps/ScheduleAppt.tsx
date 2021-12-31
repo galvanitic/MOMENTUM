@@ -10,12 +10,12 @@ const ScheduleAppt: React.FunctionComponent<IScheduleApptProps> = (props) => {
     <div className="schedule_appt_cont widget_cont">
       <div className="schedule_appt widget">
         <div className="schedule_text">
-          <CoachIcon />
-          <h2>Schedule a Meeting with Your Coach</h2>
+          <CoachIcon sx={{fontSize: '400%', color: '#64ad98'}} />
         </div>
         <div className="coach_profile">
-          <Avatar sx={{marginRight: '10px'}} alt="Cynthia Suarez" src=""/>
-          <div>
+            <h2>Schedule a Meeting with Your Coach</h2>
+          <div className="coach_info">
+            <Avatar sx={{marginRight: '10px'}} alt="Cynthia Suarez" src=""/>
             <h3>Cynthia Suarez</h3>
           </div>
         </div>
