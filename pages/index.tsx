@@ -5,14 +5,14 @@ import StudentProgress from '../components/student_comps/StudentProgress';
 import WeeklyHours from '../components/student_comps/WeeklyHours';
 import SchoolPortal from '../components/student_comps/SchoolPortal';
 import ScheduleAppt from '../components/student_comps/ScheduleAppt';
-import CommunityBoard from '../components/dash_comps/CommunityBoard';
-
+import ProjectTracker from '../components/student_comps/ProjectTracker';
 export default function Home() {
-  const user = useUser({ redirectTo: '/login', redirectIfFound:false });
   const [profile, chProfile] = React.useState<String>('/profile.png');
+  const user = useUser({ redirectTo: '/login', redirectIfFound:false });
   
   React.useEffect(()=>{
     // To handle profile picture
+    // console.log(user)
   })
   return (
     <div className="dash">
@@ -28,11 +28,10 @@ export default function Home() {
         </div>
         <div id="container_2" className="dash_container">
           <h2>Project Tracker</h2>
-          
+          <ProjectTracker />
         </div>
         <div id="container_3" className="dash_container">
           <h2>Community Board</h2>
-          <CommunityBoard />
         </div>
       </div>
     </div>

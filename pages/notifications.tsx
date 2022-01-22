@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useUser } from "../lib/hooks";
 import Toolbar from "../components/toolbar";
-
-export interface INotificationsProps {
+import Notifications from '../components/dash_comps/Notifications'
+export interface INotificationsContProps {
 }
 
-export default function Notifications (props: INotificationsProps) {
+export default function NotificationsCont (props: INotificationsContProps) {
   const user = useUser({ redirectTo: '/login', redirectIfFound:false });
   const [profile, chProfile] = React.useState<String>('/profile.png');
   
@@ -13,8 +13,8 @@ export default function Notifications (props: INotificationsProps) {
     // To handle profile picture
   })
   return (
-    <div className="notifications">
-      
+    <div id="notifications-page">
+      <Notifications />
     </div>
   );
 }

@@ -12,7 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
 import { ReactComponentElement } from 'react-transition-group/node_modules/@types/react';
-export interface IWhatAThingProps {
+export interface INotificationsProps {
   
 }
 interface Column {
@@ -47,11 +47,24 @@ const rows = [
   createData('8.9.2021', ["Hudson", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
   createData('8.19.2021', ["Sarah", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
   createData('2.15.2021', ["Leigh", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
-  createData('1.18.2021', ["Chris", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
+  createData('1.18.2021', ["Chris P.", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
+  createData('1.18.2021', ["Chris D.", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, sit sunt similique, rem consectetur eum repudiandae tenetur in iusto, dolore officia pariatur sequi deserunt illum? Corrupti, fugit! Repellendus, exercitationem saepe."),
   createData('6.15.2021', ["Suarez", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Alma", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Janet", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Max", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Evelyn", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Judlyne", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Noemí", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Silvio", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Adria", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Sara", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Sam", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Karen", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
+  createData('6.15.2021', ["Wendy", "/profile"], "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ut laborum perspiciatis ipsa nobis hic at doloribus dolor cupiditate, ratione nihil deleniti, ea, necessitatibus tempora et exercitationem a nemo nisi."),
 ];
 
-export default function CommunityBoard (props: IWhatAThingProps) {
+export default function Notifications (props: INotificationsProps) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const handleChangePage = (event: unknown, newPage: number) => {
@@ -63,15 +76,15 @@ export default function CommunityBoard (props: IWhatAThingProps) {
     setPage(0);
   };
   return (
-    <div style={{ width: '100%', overflow: 'hidden', marginTop: "15px", borderRadius: '15px'}}>
-      <TableContainer sx={{ height: 260 }}>
+    <div style={{ width: '95%', overflow: 'hidden', borderRadius: '15px'}}>
+      <TableContainer sx={{ height: '80vh' }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
-                  style={{ minWidth: column.minWidth, fontFamily: 'Proxima Nova Bold'}}
+                  style={{ minWidth: column.minWidth, fontFamily: 'Proxima Nova Bold', backgroundColor: "#3A585D", color:"#E4E3E1"}}
                 >
                   {column.label}
                 </TableCell>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import UserOptions from './UserOptions';
 import Avatar from '@mui/material/Avatar';
 // import Collapse from '@mui/material/Collapse';
+import { useUser } from "../lib/hooks";
 
 interface IUserPreviewProps {
   user_fname?: string,

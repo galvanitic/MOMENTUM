@@ -42,7 +42,14 @@ h2 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  height: 90vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f5f6fa;
 }
 
 #apps-page {
@@ -57,6 +64,7 @@ h2 {
 }
 
 #toolbar {
+  height: 10vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 6fr 2fr;
@@ -217,7 +225,7 @@ h2 {
 
 .dash {
   max-width: 100%;
-  height: 92vh;
+  height: 90vh;
   background-color: #f5f6fa;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -383,7 +391,7 @@ h2 {
 
 .dash .main_dash_container #container_1 .dash_content .schedule_appt_cont .schedule_appt h2 {
   margin: 0 0;
-  color: #64AD98;
+  color: #7e869f;
   text-align: center;
   font-size: 15px;
 }
@@ -392,7 +400,7 @@ h2 {
   height: 100%;
   width: 100%;
   position: relative;
-  background-color: #f5f6fa;
+  background-color: white;
   z-index: 6;
   padding: 0 15px;
   text-align: center;
@@ -428,7 +436,9 @@ h2 {
           align-items: center;
   top: -100%;
   z-index: 5;
-  background-color: #3A585D;
+  background-color: #e5e7eb;
+  -webkit-box-shadow: inset 0 0 10px 0px #acadaf;
+          box-shadow: inset 0 0 10px 0px #acadaf;
   cursor: pointer;
 }
 
@@ -447,7 +457,7 @@ h2 {
 
 .dash .main_dash_container #container_1 .dash_content .schedule_appt_cont .schedule_appt .coach_profile h3 {
   font-family: Utopia STD;
-  color: #D7DDDE;
+  color: #3A585D;
 }
 
 .dash .main_dash_container #container_2 {
