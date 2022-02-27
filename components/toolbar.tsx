@@ -4,10 +4,10 @@ import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
 // import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import CategoryRoundedIcon from '@mui/icons-material/CategoryRounded';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import UserPreview from './UserPreview';
 import Link from 'next/link'
 import router from 'next/router';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export interface IToolbarProps {
   user_fname?: string,
@@ -18,10 +18,10 @@ export interface IToolbarProps {
 export function Toolbar (props: IToolbarProps) {
   // const [activeTab, chActiveTab] = React.useState<number>(0);
   const [tabState, chTabState] = React.useState<Array<string>>(['active', 'passive', 'passive', 'passive']);
-  const [tabs, chTabs] = React.useState<Array<string>>(['/', '/timekeeper', '/apps', '/notifications']);
+  const [tabs, chTabs] = React.useState<Array<string>>(['/', '/resources', '/apps', '/notifications']);
   React.useEffect(() => {
     // Handle tab
-    // chActiveTab();
+    
     switch(router.pathname){
       case tabs[0]:
         //Dash is active
@@ -37,12 +37,10 @@ export function Toolbar (props: IToolbarProps) {
         chTabState(['passive', 'passive', 'passive', 'active']);
         break;
       default:
-        // chTabState(['passive', 'passive', 'passive']);
-        // console.log(props.active_tab);
+        chTabState(['passive', 'passive', 'passive', 'passive']);
         break;
-
     }
-  },[tabState, tabs])
+  },[tabState, tabs, chTabState])
   return (
     <div id="toolbar">
       <span className="logo">
@@ -53,7 +51,7 @@ export function Toolbar (props: IToolbarProps) {
           <span id={tabState[0]} className="tab_item"><DashboardRoundedIcon/><p>Dashboard</p></span>
         </Link>
         <Link href={tabs[1]}>
-          <span id={tabState[1]} className="tab_item"><AccessTimeIcon/><p>Timekeeper</p></span>
+          <span id={tabState[1]} className="tab_item"><FavoriteIcon /><p>Resources</p></span>
         </Link>
         <Link href={tabs[2]}>
           <span id={tabState[2]} className="tab_item"><CategoryRoundedIcon/><p>Apps</p></span>

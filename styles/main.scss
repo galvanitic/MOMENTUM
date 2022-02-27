@@ -54,7 +54,6 @@ h2 {
 
 // Toolbar component
 #toolbar{
-  height: 10vh;
   display: grid;
   grid-template-columns: 1fr 6fr 2fr;
   grid-template-rows: 80px;
@@ -156,7 +155,7 @@ h2 {
 // Dash component
 .dash {
   max-width: 100%;
-  height: 90vh;
+  height: 91vh;
   background-color: $white4;
   display: flex;
   flex-direction: row;
@@ -175,9 +174,9 @@ h2 {
     box-shadow: #ebebeb 0px 0px 10px 0px;        
   }
   .main_dash_container{
-    width: 100%;
+    width: 100vw;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: repeat(2, 1fr);
     grid-template-areas: 
               "a a"
@@ -211,6 +210,18 @@ h2 {
         }
         .weekly_hours_cont{
           grid-area: wh;
+          .weekly_hours{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h2 {
+              margin: 2vh 0 0 0;
+            }
+            #bar_cont{
+              height: 83%;
+              width: 100%;
+            }
+          }
         }
         .school_portal_cont{
           transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s all;
@@ -274,6 +285,7 @@ h2 {
               justify-content: center;
               align-items: center;
               transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s all;
+              box-shadow: 0 6px 9px 0px #bbb;;
             }
             
             .coach_profile {
@@ -305,11 +317,17 @@ h2 {
     }
     #container_2{
       grid-area: b;
-      
+      height: 40vh;
+      h2 {
+        margin: 0 0 0 0;
+      }
     }
     #container_3{
       grid-area: c;
-      
+      height: 40vh;
+      h2 {
+        margin: 0 0 0 0;
+      }
     }
     .dash_container{
       padding: 0 4vw;

@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
-import Authenticate from '../components/authenticate';
+import Authenticate from '../components/authenticate'
+import Footer from '../components/Footer';
 
 export interface ILoginProps {
 }
@@ -53,19 +54,7 @@ export default function Login (props: ILoginProps) {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://rglvn.com"
-          rel="noopener noreferrer"
-        >
-          © PelotonU |
-          <span className={styles.logo}>
-            <Image src="/r.png" alt="Vercel Logo" width={16} height={16} />
-          </span>
-         | 2021
-          
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }

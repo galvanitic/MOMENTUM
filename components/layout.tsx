@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useUser } from "../lib/hooks";
 import Head from 'next/head';
 import Toolbar from './toolbar';
-
+import Footer from '../components/Footer';
 export interface ILayoutProps {
   title: string,
   children: JSX.Element
@@ -21,6 +21,7 @@ export default function Layout (props: ILayoutProps) {
       <main>
         {props.children}
       </main>
+      <Footer />
     </div>
   );
 }

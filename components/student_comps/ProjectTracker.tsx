@@ -1,15 +1,23 @@
 import * as React from 'react';
-import { display } from '@mui/system';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
-import { ReactComponentElement } from 'react-transition-group/node_modules/@types/react';
-import { create } from '@mui/material/styles/createTransitions';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Box from '@mui/material/Box';
+import { createStyles, makeStyles, Theme, ThemeProvider, createTheme } from '@material-ui/core/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#3A585D',
+    },
+  },
+});
 
 interface IProjectTrackerProps {
 }
@@ -24,15 +32,15 @@ interface Data {
   goal: string,
   code: string,
   title: string,
-  status?: string
+  status?: number
 }
 const columns: readonly Column[] = [
-  { id: 'number', label: '', minWidth: 120 },
-  { id: 'equivalency', label: 'Course Equivalency', minWidth: 150 },
-  { id: 'goal', label: 'Goal', minWidth: 250 },
-  { id: 'code', label: 'Competency Code', minWidth: 250 },
-  { id: 'title', label: 'Project Title', minWidth: 250 },
-  { id: 'status', label: 'Status', minWidth: 10 },
+  { id: 'number', label: '', minWidth: 10 },
+  { id: 'equivalency', label: 'Course Equivalency', minWidth: 50 },
+  { id: 'goal', label: 'Goal', minWidth: 50 },
+  { id: 'code', label: 'Competency Code', minWidth: 50 },
+  { id: 'title', label: 'Project Title', minWidth: 100 },
+  { id: 'status', label: 'Status', minWidth: 50 },
 ];
 function createData(
   number: number,
@@ -40,7 +48,7 @@ function createData(
   goal: string,
   code: string,
   title: string,
-  status?: string
+  status?: number
 ): Data {
   return { number, equivalency, goal, code, title, status};
 }
@@ -109,8 +117,126 @@ const rows = [
 
 
 const ProjectTracker: React.FunctionComponent<IProjectTrackerProps> = (props) => {
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  const handleStatus = () => {
+    
+  }
   return (
-    <div></div>
+    <div style={{ overflow: 'hidden', borderRadius: '15px', height: '100%'}}>
+      <TableContainer sx={{ height: '90%' }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  style={{ minWidth: column.minWidth, fontFamily: 'Proxima Nova Bold', backgroundColor: "#3A585D", color:"#E4E3E1"}}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.number}>
+                    {columns.map((column) => {
+                      const value: string | string[] | Array<string> | undefined | number = row[column.id];
+                      switch(column.id){
+                        case 'number':
+                          return (
+                            <TableCell key={column.id} sx={{fontFamily: 'Proxima'}}>
+                              {<div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'start', alignItems: 'center', fontFamily: 'Proxima'}}> {value} </div>}
+                            </TableCell>
+                          );
+                        case 'equivalency':
+                          return (
+                            <TableCell key={column.id} sx={{fontFamily: 'Proxima'}}>
+                              {<div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'start', alignItems: 'center', fontFamily: 'Proxima'}}> {value} </div>}
+                            </TableCell>
+                            );
+                        case 'goal':
+                          return(
+                            <TableCell key={column.id} sx={{fontFamily: 'Proxima'}}>
+                              {<div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'start', alignItems: 'center', fontFamily: 'Proxima'}}> {value} </div>}
+                            </TableCell>
+                          )
+                        case 'code':
+                          return(
+                            <TableCell key={column.id} sx={{fontFamily: 'Proxima'}}>
+                              {<div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'start', alignItems: 'center', fontFamily: 'Proxima'}}> {value} </div>}
+                            </TableCell>
+                          )
+                        case 'title':
+                          return(
+                            <TableCell key={column.id} sx={{fontFamily: 'Proxima'}}>
+                              {<div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'start', alignItems: 'center', fontFamily: 'Proxima'}}> {value} </div>}
+                            </TableCell>
+                          )
+                        case 'status':
+                          return(
+                            <TableCell key={column.id} sx={{fontFamily: 'Proxima'}}>
+                              {
+                                <Box
+                                  sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    '& > *': {
+                                      m: 1,
+                                    },
+                                  }}
+                                > 
+                                <ThemeProvider theme={theme}>
+                                 <ButtonGroup variant="outlined" aria-label="text button group">
+                                  <Button onClick={handleStatus}>Started</Button>
+                                  <Button onClick={handleStatus}>Not Yet</Button>
+                                  <Button onClick={handleStatus}>Mastered</Button>
+                                </ButtonGroup>
+                                </ThemeProvider>
+                                </Box>
+                              }
+                            </TableCell>
+                          )
+                        default:
+                          return (
+                            <TableCell key={column.id} sx={{fontFamily: 'Proxima'}}>
+                              {value}
+                            </TableCell>
+                          );
+                      }
+                      
+                    })}
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[5, 10, 20]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+        sx={{fontFamily: 'Proxima'}}
+      />
+    </div>
   );
 };
 

@@ -3,6 +3,7 @@ import { Paper } from '@material-ui/core';
 import { createStyles, makeStyles, Theme, ThemeProvider, createTheme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
+import LoadingButton from '@mui/lab/LoadingButton';
 
 export interface IFormProps {
   errorMessage:any,
@@ -42,8 +43,13 @@ const theme = createTheme({
 });
 function Form (props: IFormProps) {
   const classes = useStyles();
-  const [email, chEmail] = React.useState("");
+  const [isLoading, chIsLoading] = React.useState<boolean>(false);
 
+  React.useEffect(()=>{}, [isLoading])
+
+  const handleLoadingBttn = () => {
+    chIsLoading(true);
+  }
   return (
     <form onSubmit={props.onSubmit}>
       <ThemeProvider theme={theme}>
@@ -53,15 +59,9 @@ function Form (props: IFormProps) {
             <p id="company-domain">@pelotonu.org</p>
           </div>
         </label>
-        {/* <label>
-          <div id="password-div">
-            <TextField InputProps={{className: classes.input}} id="outlined-basic" label="Password" variant="outlined" type="password" />
-          </div>
-        </label> */}
         <div className="submit">
-          <Button type="submit" variant="contained" id="sign-in">Log In</Button>
+          {isLoading ? <LoadingButton sx={{padding: '21px 9vw !important'}} loading variant="outlined" /> : <Button type="submit" variant="contained" id="sign-in" onSubmit={handleLoadingBttn}>Log In</Button>}
         </div>
-
         {props.errorMessage && <p className="error">{props.errorMessage}</p>}
         <p className="login-description">
           Login using your PelotonU email.

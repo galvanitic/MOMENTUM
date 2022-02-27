@@ -22,7 +22,7 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY } : ICenteredMetric) => 
           style={{
             fill: '#F7F7F6',
             fontFamily: 'Proxima',
-            fontSize: '20px',
+            fontSize: '1.5vw',
           }}
       >
           {`${total}%`}
@@ -35,18 +35,19 @@ const StudentProgress: React.FunctionComponent<IStudentProgressProps> = (props) 
       <div className="student_progress widget">
       <h2>Progress</h2>
       <ResponsivePie
-        data={[{"id": "complete",
-        "label": "% complete",
+        data={[{"id": "% Degree Completed",
+        "label": "% Degree Complete",
         "value": 80,
         "color": "#D98D7A"},
-        {"id": "remaining",
-        "label": "% remaining",
+        {"id": "% Degree Remaining",
+        "label": "% Degree Remaining",
         "value": 20,
-        "color": "rgba(228, 227, 225, 0)"}]}
+        "color": "rgba(228, 227, 225, 0)"}
+      ]}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
         fit={false}
         innerRadius={0.5}
-        isInteractive={false}
+        isInteractive={true}
         padAngle={0.7}
         cornerRadius={3}
         activeOuterRadiusOffset={8}
@@ -64,15 +65,15 @@ const StudentProgress: React.FunctionComponent<IStudentProgressProps> = (props) 
         fill={[
             {
                 match: {
-                    id: 'complete'
+                    id: '% Degree Completed'
                 },
-                id: 'complete'
+                id: '% Degree Completed'
             },
             {
               match: {
-                  id: 'remaining'
+                  id: '% Degree Remaining'
               },
-              id: 'remaining'
+              id: '% Degree Remaining'
           }
         ]}
       //   legends={[
